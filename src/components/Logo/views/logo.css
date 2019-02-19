@@ -1,0 +1,13 @@
+.logo{
+    font-family: Montserrat;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    margin: 36px;
+    user-select: none;
+  }
+
+  .logo > .hidden{
+      max-height: 0px;
+      overflow: hidden;
+  }

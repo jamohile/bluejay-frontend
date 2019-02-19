@@ -1,0 +1,78 @@
+/**
+Easter Egg 
+Makes the page do cool stuff on logo hover...
+
+This is kind of messy, and breaks the idea of isolating components...
+But this is an easter egg so pure functionality wasn't the idea.
+**/
+
+@keyframes backgroundFill{
+    0%{
+        width: 0;
+    }
+    95%{
+        width: 100%;
+        opacity: 0.2;
+    }
+    100%{
+        opacity: 0;
+        width: 100%;
+    }
+}
+
+.logo > .hidden{
+    max-height: 0px;
+    transform: rotateX(-90deg);
+    transition: transform 2s, max-height 0.8s;
+    overflow: hidden;
+  }
+  .logo:hover > .hidden{
+    max-height: 100px;
+    transform: rotateX(0deg);
+  }
+  .logo > .name{
+    max-height: 100px;
+    transform: rotateX(0deg);
+    overflow: hidden;
+
+    transition: transform 1s, max-height 1s 0.2s;
+  }
+  .logo:hover > .name{
+    max-height: 0px;
+    transform: rotateX(90deg);
+  }
+  
+  .fieldSelect{
+    z-index: 1000;
+
+    transition:  left 0.6s 1s ease-in-out, transform 1.6s 0.2s ease-in-out;
+  }
+  .logo:hover ~ .fieldSelect{
+    left: 200px;
+    transform: rotateY(45deg) rotateZ(45deg);
+
+    animation: hover 4s 1.5s infinite ease-in-out;
+  }
+  .dataTable{
+    transition:  left 0.8s 0.8s ease-in-out, transform 1.2s ease-in-out,  width 2s;
+  }
+  .logo:hover ~ .dataTable{
+    position: relative;
+    left: 250px;
+    width: 50%;
+
+    transform: rotateY(45deg) rotateZ(45deg);
+    animation: hover 4s infinite ease-in-out;
+  }
+  
+  @keyframes hover{
+    0%{
+      top: 0px;
+    }
+    50%{
+      top: 50px;
+    }
+    100%{
+      top: 0px;
+    }
+  }

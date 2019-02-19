@@ -1,0 +1,144 @@
+.dataTable{
+    position: relative;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    width: 80%;/**832px;**/
+    flex-grow: 1;
+
+    margin: 0 auto 48px auto;
+
+
+    border-radius: 24px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.2) inset;
+    background: rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/** The column titles. **/
+.dataTable .headerView{
+    display: flex;
+    box-sizing: border-box;
+    height: 72px;
+    width: 100%;
+
+    padding-left: 64px;
+    padding-right: 64px;
+    
+    background: rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.2);
+}
+.dataTable .headerView .text{
+    color: rgba(0,0,0,0.4);
+    line-height: 72px;
+
+    text-align: left;
+}
+
+/** Controls the alignment of both header and row columns */
+/** We technically could have used a table here, but felt it was overall easier and more flexible to go ground up */
+.dataTable .headerView .text.number, .dataTable .rowView .text.number{
+    flex-basis: 1px;
+    flex-grow: 1
+}
+.dataTable .headerView .text.value, .dataTable .rowView .text.value{
+    flex-basis: 1px;
+    flex-grow: 5
+}
+.dataTable .headerView .text.count, .dataTable .rowView .text.count{
+    flex-basis: 1px;
+    flex-grow: 2
+}
+.dataTable .headerView .text.age, .dataTable .rowView .text.age{
+    flex-basis: 1px;
+    flex-grow: 1;
+}
+
+/** Rows, Errors, and Loading views all share this base element **/
+.dataTable .cardView{
+    position: relative;
+    height: 64px;
+    width: calc(100% - 72px);
+    box-sizing: border-box;
+
+    margin: 20px 36px;
+    line-height: 64px;
+    padding: 0px 27px;
+    
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+    background: white;
+    animation: floatIn 0.4s ease-in-out;
+}
+@keyframes floatIn{
+    0%{
+        top: 10px;
+    }
+    100%{
+        top: 0px;
+    }
+}
+
+/** Loading Message */
+
+.dataTable .loadingView{
+    background: linear-gradient(to bottom left, #448afd, #8864fd);
+    animation: loadingViewAnimation 2s infinite;
+}
+@keyframes loadingViewAnimation{
+    0%{
+        background-size: 100%;
+    }
+    50%{
+        background-size: 500%;
+    }
+    100%{
+        background-size: 100%;
+    }
+}
+.dataTable .loadingView .text{
+    color: white;
+}
+
+.dataTable .reloadView{
+    background:  #448afd;
+    transition: transform 0.4s;
+}
+.dataTable .reloadView:hover{
+    transform: scale(1.01);
+}
+.dataTable .reloadView .text{
+    color: white;
+}
+/** Error Message */
+.dataTable .errorView{
+    background: #D87777;
+}
+.dataTable .errorView .text{
+    color: white;
+}
+
+/** Rows Omitted Message */
+.dataTable .excessView{
+    background: linear-gradient(to bottom left, #448afd, #8864fd);
+}
+.dataTable .excessView .text{
+    color: white;
+}
+
+/** Row View, and container for multiple rows */
+.dataTable .rowView{
+    display: inline-flex;
+}
+.dataTable .rowView .text{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dataTable .rowsView{
+    flex-basis: 0px;
+    flex-grow: 1;
+    overflow: auto;
+}

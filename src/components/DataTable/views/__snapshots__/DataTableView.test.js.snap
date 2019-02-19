@@ -1,0 +1,541 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders DataTable with excess 1`] = `
+<div
+  className="dataTable"
+>
+  <div
+    className="headerView"
+  >
+    <span
+      className="text number"
+    >
+      #
+    </span>
+    <span
+      className="text value"
+    >
+      Value
+    </span>
+    <span
+      className="text count"
+    >
+      Count
+    </span>
+    <span
+      className="text age"
+    >
+      Age
+    </span>
+  </div>
+  <div
+    className="cardView reloadView"
+    onClick={[Function]}
+  >
+    <span
+      className="text"
+    >
+      Reload 
+      <b>
+        
+      </b>
+    </span>
+  </div>
+  <div
+    className="rowsView"
+  >
+    <div
+      className="cardView excessView"
+    >
+      <span
+        className="text"
+      >
+        123
+         rows were omitted.
+      </span>
+    </div>
+    <div
+      className="cardView rowView"
+    >
+      <span
+        className="faded text number"
+      >
+        1
+      </span>
+      <span
+        className="text value"
+      >
+        apple
+      </span>
+      <span
+        className="faded text count"
+      >
+        7
+      </span>
+      <span
+        className="faded text age"
+      >
+        4
+      </span>
+    </div>
+    <div
+      className="cardView rowView"
+    >
+      <span
+        className="faded text number"
+      >
+        2
+      </span>
+      <span
+        className="text value"
+      >
+        banana
+      </span>
+      <span
+        className="faded text count"
+      >
+        155
+      </span>
+      <span
+        className="faded text age"
+      >
+        100
+      </span>
+    </div>
+    <div
+      className="cardView rowView"
+    >
+      <span
+        className="faded text number"
+      >
+        3
+      </span>
+      <span
+        className="text value"
+      >
+        pear
+      </span>
+      <span
+        className="faded text count"
+      >
+        17
+      </span>
+      <span
+        className="faded text age"
+      >
+        5
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Renders DataTable with excess 2`] = `
+<div
+  className="dataTable"
+>
+  <div
+    className="headerView"
+  >
+    <span
+      className="text number"
+    >
+      #
+    </span>
+    <span
+      className="text value"
+    >
+      Value
+    </span>
+    <span
+      className="text count"
+    >
+      Count
+    </span>
+    <span
+      className="text age"
+    >
+      Age
+    </span>
+  </div>
+  <div
+    className="cardView reloadView"
+    onClick={[Function]}
+  >
+    <span
+      className="text"
+    >
+      Reload 
+      <b>
+        
+      </b>
+    </span>
+  </div>
+  <div
+    className="rowsView"
+  >
+    <div
+      className="cardView excessView"
+    >
+      <span
+        className="text"
+      >
+        123
+         rows were omitted.
+      </span>
+    </div>
+    <div
+      className="cardView rowView"
+    >
+      <span
+        className="faded text number"
+      >
+        1
+      </span>
+      <span
+        className="text value"
+      >
+        apple
+      </span>
+      <span
+        className="faded text count"
+      >
+        7
+      </span>
+      <span
+        className="faded text age"
+      >
+        4
+      </span>
+    </div>
+    <div
+      className="cardView rowView"
+    >
+      <span
+        className="faded text number"
+      >
+        2
+      </span>
+      <span
+        className="text value"
+      >
+        banana
+      </span>
+      <span
+        className="faded text count"
+      >
+        155
+      </span>
+      <span
+        className="faded text age"
+      >
+        100
+      </span>
+    </div>
+    <div
+      className="cardView rowView"
+    >
+      <span
+        className="faded text number"
+      >
+        3
+      </span>
+      <span
+        className="text value"
+      >
+        pear
+      </span>
+      <span
+        className="faded text count"
+      >
+        17
+      </span>
+      <span
+        className="faded text age"
+      >
+        5
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Renders ExcessView. 1`] = `
+<div
+  className="cardView excessView"
+>
+  <span
+    className="text"
+  >
+     rows were omitted.
+  </span>
+</div>
+`;
+
+exports[`Renders HeaderView. 1`] = `
+<div
+  className="headerView"
+>
+  <span
+    className="text number"
+  >
+    #
+  </span>
+  <span
+    className="text value"
+  >
+    Value
+  </span>
+  <span
+    className="text count"
+  >
+    Count
+  </span>
+  <span
+    className="text age"
+  >
+    Age
+  </span>
+</div>
+`;
+
+exports[`Renders Loading DataTable 1`] = `
+<div
+  className="dataTable"
+>
+  <div
+    className="headerView"
+  >
+    <span
+      className="text number"
+    >
+      #
+    </span>
+    <span
+      className="text value"
+    >
+      Value
+    </span>
+    <span
+      className="text count"
+    >
+      Count
+    </span>
+    <span
+      className="text age"
+    >
+      Age
+    </span>
+  </div>
+  <div
+    className="cardView loadingView"
+  >
+    <span
+      className="text"
+    >
+      One moment...
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Renders LoadingView. 1`] = `
+<div
+  className="cardView loadingView"
+>
+  <span
+    className="text"
+  >
+    One moment...
+  </span>
+</div>
+`;
+
+exports[`Renders RowsView 1`] = `
+<div
+  className="rowsView"
+>
+  <div
+    className="cardView rowView"
+  >
+    <span
+      className="faded text number"
+    >
+      1
+    </span>
+    <span
+      className="text value"
+    >
+      apple
+    </span>
+    <span
+      className="faded text count"
+    >
+      7
+    </span>
+    <span
+      className="faded text age"
+    >
+      4
+    </span>
+  </div>
+  <div
+    className="cardView rowView"
+  >
+    <span
+      className="faded text number"
+    >
+      2
+    </span>
+    <span
+      className="text value"
+    >
+      banana
+    </span>
+    <span
+      className="faded text count"
+    >
+      155
+    </span>
+    <span
+      className="faded text age"
+    >
+      100
+    </span>
+  </div>
+  <div
+    className="cardView rowView"
+  >
+    <span
+      className="faded text number"
+    >
+      3
+    </span>
+    <span
+      className="text value"
+    >
+      pear
+    </span>
+    <span
+      className="faded text count"
+    >
+      17
+    </span>
+    <span
+      className="faded text age"
+    >
+      5
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Renders a single RowView 1`] = `
+<div
+  className="cardView rowView"
+>
+  <span
+    className="faded text number"
+  >
+    0
+  </span>
+  <span
+    className="text value"
+  >
+    apple
+  </span>
+  <span
+    className="faded text count"
+  >
+    7
+  </span>
+  <span
+    className="faded text age"
+  >
+    4
+  </span>
+</div>
+`;
+
+exports[`Renders error DataTable 1`] = `
+<div
+  className="dataTable"
+>
+  <div
+    className="headerView"
+  >
+    <span
+      className="text number"
+    >
+      #
+    </span>
+    <span
+      className="text value"
+    >
+      Value
+    </span>
+    <span
+      className="text count"
+    >
+      Count
+    </span>
+    <span
+      className="text age"
+    >
+      Age
+    </span>
+  </div>
+  <div
+    className="cardView errorView"
+  >
+    <span
+      className="text"
+    >
+      Something went wrong.
+    </span>
+  </div>
+  <div
+    className="cardView reloadView"
+    onClick={[Function]}
+  >
+    <span
+      className="text"
+    >
+      Reload 
+      <b>
+        
+      </b>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Renders normal ReloadView. 1`] = `
+<div
+  className="cardView reloadView"
+>
+  <span
+    className="text"
+  >
+    Reload 
+    <b>
+      
+    </b>
+  </span>
+</div>
+`;
+
+exports[`Renders stale ReloadView. 1`] = `
+<div
+  className="cardView reloadView"
+>
+  <span
+    className="text"
+  >
+    Reload 
+    <b>
+       - This data may be out of date.
+    </b>
+  </span>
+</div>
+`;

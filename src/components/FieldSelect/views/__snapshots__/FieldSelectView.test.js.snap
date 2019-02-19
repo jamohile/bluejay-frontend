@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders ErrorView. 1`] = `
+<span
+  className="text"
+>
+  Something went wrong...
+</span>
+`;
+
+exports[`Renders LoadingView. 1`] = `
+<span
+  className="faded text"
+>
+  One moment..
+</span>
+`;
+
+exports[`Renders OptionsView. 1`] = `
+<span
+  className="optionView"
+>
+  <span
+    className="faded text"
+  >
+    Filter by
+  </span>
+  <select
+    className="bold text"
+    onChange={[Function]}
+  >
+    <option
+      selected={false}
+    >
+      someField, someOther, Another
+    </option>
+  </select>
+</span>
+`;
+
+exports[`Renders error FieldSelectView 1`] = `
+<div
+  className="fieldSelect error"
+>
+  <span
+    className="text"
+  >
+    Something went wrong...
+  </span>
+</div>
+`;
+
+exports[`Renders loaded FieldSelectView 1`] = `
+<div
+  className="fieldSelect"
+>
+  <span
+    className="optionView"
+  >
+    <span
+      className="faded text"
+    >
+      Filter by
+    </span>
+    <select
+      className="bold text"
+      onChange={[Function]}
+    >
+      <option
+        selected={false}
+      >
+        someField, someOther, Another
+      </option>
+    </select>
+  </span>
+</div>
+`;
+
+exports[`Renders loading FieldSelectView 1`] = `
+<div
+  className="fieldSelect"
+>
+  <span
+    className="faded text"
+  >
+    One moment..
+  </span>
+</div>
+`;
