@@ -4,8 +4,14 @@ import FieldSelectContainer from "./components/FieldSelect/containers/FieldSelec
 import DataTableContainer from './components/DataTable/containers/DataTableContainer';
 import Logo from './components/Logo/views/Logo';
 import HoverEasterEgg from './EasterEggs/Hover/Hover';
+import { configureAPI } from './utilities/network/network';
 
 class App extends React.Component {
+  constructor(props:any){
+    super(props);
+    console.dir(configureAPI);
+    configureAPI();
+  }
   render() {
       return (
       <div className="App">
