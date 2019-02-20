@@ -26,7 +26,7 @@ class DataSearchContainer extends Component<DataSearchContainerProps, {}>{
 }
 
 const mapStateToProps = (state:StoreState) => {
-
+    return {}
 }
 
 const mapDispatchToProps = (dispatch:(({}) => void)) => {

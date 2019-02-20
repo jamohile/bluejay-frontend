@@ -10,7 +10,6 @@ import DataSearchContainer from './components/DataSearch/containers/DataSearchCo
 class App extends React.Component {
   constructor(props:any){
     super(props);
-    console.dir(configureAPI);
     configureAPI();
   }
   render() {

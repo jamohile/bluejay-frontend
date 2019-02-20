@@ -74,7 +74,7 @@ export function asyncLoadFieldsAction() {
                 dispatch(fieldsLoadSuccessAction(value.data.data.fields))
             })
             .catch(reason => {
-                dispatch(fieldsLoadFailureAction(reason.response.status))
+                dispatch(fieldsLoadFailureAction(reason.response ? reason.response.status : 0))
             })
     }
 }

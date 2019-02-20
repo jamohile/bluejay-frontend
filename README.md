@@ -41,3 +41,9 @@ When deploying, *do not* include this directory. Typescript will be compiled, an
     7. I'm not saying there's an easter egg if you hover the logo...but I'm also not saying there isn't...
 
     8. TODO: Clean up the css styling, but that convention depends on organization.
+
+    9. I used CSS zoom...which I know is a questionable idea. It isn't supported by firefox which is why the scaling is off there. It was used because my design tool (XD) has pixel sizing a little bit off from normal desktop in my experience. Scaling allowed me to move faster.
+
+    In proper development, I'd use either a CSS preprocessor or a root{} variable to store a unit size in px, then write all other dimensions as calced functions of that base unit.
+
+    
