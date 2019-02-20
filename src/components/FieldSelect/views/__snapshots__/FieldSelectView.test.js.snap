@@ -23,7 +23,7 @@ exports[`Renders OptionsView. 1`] = `
   <span
     className="faded text"
   >
-    Filter by
+    Select by
   </span>
   <select
     className="bold text"
@@ -40,13 +40,18 @@ exports[`Renders OptionsView. 1`] = `
 
 exports[`Renders error FieldSelectView 1`] = `
 <div
-  className="fieldSelect error"
+  className="fieldSelect"
 >
-  <span
-    className="text"
+  <div
+    className="inputBase error"
   >
-    Something went wrong...
-  </span>
+    <span
+      className="text"
+    >
+      Something went wrong...
+    </span>
+  </div>
+   
 </div>
 `;
 
@@ -54,25 +59,30 @@ exports[`Renders loaded FieldSelectView 1`] = `
 <div
   className="fieldSelect"
 >
-  <span
-    className="optionView"
+  <div
+    className="inputBase"
   >
     <span
-      className="faded text"
+      className="optionView"
     >
-      Filter by
-    </span>
-    <select
-      className="bold text"
-      onChange={[Function]}
-    >
-      <option
-        selected={false}
+      <span
+        className="faded text"
       >
-        someField, someOther, Another
-      </option>
-    </select>
-  </span>
+        Select by
+      </span>
+      <select
+        className="bold text"
+        onChange={[Function]}
+      >
+        <option
+          selected={false}
+        >
+          someField, someOther, Another
+        </option>
+      </select>
+    </span>
+  </div>
+   
 </div>
 `;
 
@@ -80,10 +90,15 @@ exports[`Renders loading FieldSelectView 1`] = `
 <div
   className="fieldSelect"
 >
-  <span
-    className="faded text"
+  <div
+    className="inputBase"
   >
-    One moment..
-  </span>
+    <span
+      className="faded text"
+    >
+      One moment..
+    </span>
+  </div>
+   
 </div>
 `;

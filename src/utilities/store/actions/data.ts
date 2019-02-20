@@ -10,6 +10,10 @@ export const DATA_LOAD_SUCCESS = 'DATA_LOAD_SUCCESS';
 export const DATA_LOAD_FAILURE = 'DATA_LOAD_FAILURE';
 export const DATA_RELOAD = 'DATA_RELOAD';
 
+export const DATA_SEARCH_CHANGED = 'DATA_SEARCH_CHANGED';
+
+export const DATA_TIME_ELAPSED_INCREMENT = 'DATA_TIME_ELAPSED_INCREMENT';
+
 /**
  * Action Types
  */
@@ -31,6 +35,14 @@ export interface DataLoadFailureType {
 export interface DataReloadType{
     type:string,
     payload: string
+}
+
+export interface DataSearchChangedType{
+    type: string,
+    payload: string
+}
+export interface DataTimeElapsedIncrementType{
+    type: string
 }
 
 /**
@@ -76,6 +88,18 @@ export function dataReloadAction(field:string): DataReloadType{
     return{
         type: DATA_RELOAD,
         payload: field
+    }
+}
+
+export function dataSearchChangedAction(search: string): DataSearchChangedType{
+    return {
+        type: DATA_SEARCH_CHANGED,
+        payload: search
+    }
+}
+export function dataTimeElapsedIncrementAction(): DataTimeElapsedIncrementType{
+    return {
+        type: DATA_TIME_ELAPSED_INCREMENT
     }
 }
 

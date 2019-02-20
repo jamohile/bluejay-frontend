@@ -5,6 +5,7 @@
     font-size: 40px;
     margin: 36px;
     user-select: none;
+    width: fit-content;
   }
 
   .logo > .hidden{

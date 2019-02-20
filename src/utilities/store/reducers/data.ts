@@ -3,7 +3,8 @@ import {
     DATA_LOAD_FAILURE,
     DATA_LOAD_SUCCESS, 
     DATA_RELOAD,
-    DataLoadBeginType, DataLoadFailureType, DataLoadSuccessType, DataReloadType
+    DATA_TIME_ELAPSED_INCREMENT,
+    DataLoadBeginType, DataLoadFailureType, DataLoadSuccessType, DataReloadType, DATA_SEARCH_CHANGED, DataSearchChangedType
 } from '../actions/data';
 import {AnyAction} from "redux";
 
@@ -19,6 +20,8 @@ import {AnyAction} from "redux";
 // The data portion of state as a whole. 
 export interface DataState {
     store: { [key: string]: DataField },
+    search: string,
+    timeElapsed: number,
     loaded: boolean,
     loading: boolean,
     error: boolean
@@ -42,6 +45,8 @@ export interface DataRow {
 // The initial state of the data property.
 const initialState: DataState = {
     store: {},
+    search: '',
+    timeElapsed: 0,
     loaded: false,
     loading: false,
     error: false
@@ -66,6 +71,7 @@ export default function dataReducer(state = initialState, action: AnyAction) {
             return {
                 ...state,
                 store: newStore,
+                timeElapsed: 0,
                 loaded: true,
                 loading: false,
                 error: false
@@ -89,6 +95,20 @@ export default function dataReducer(state = initialState, action: AnyAction) {
                 ...state,
                 store: reloadStore
             }
+            break;
+        case DATA_SEARCH_CHANGED:
+            return {
+                ...state,
+                search: (action as DataSearchChangedType).payload
+            }
+            break;
+        
+        case DATA_TIME_ELAPSED_INCREMENT:
+            return{
+                ...state,
+                timeElapsed: state.timeElapsed + 1
+            }
+            break;
     }
     return state;
 }

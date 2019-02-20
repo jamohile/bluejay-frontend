@@ -5,6 +5,7 @@ import DataTableContainer from './components/DataTable/containers/DataTableConta
 import Logo from './components/Logo/views/Logo';
 import HoverEasterEgg from './EasterEggs/Hover/Hover';
 import { configureAPI } from './utilities/network/network';
+import DataSearchContainer from './components/DataSearch/containers/DataSearchContainer';
 
 class App extends React.Component {
   constructor(props:any){
@@ -17,6 +18,7 @@ class App extends React.Component {
       <div className="App">
         <Logo/>
         <FieldSelectContainer />
+        <DataSearchContainer/>
         <DataTableContainer />
 
         {/*Easter Eggs: These aren't necessary...and can be turned off by removing them.*/}

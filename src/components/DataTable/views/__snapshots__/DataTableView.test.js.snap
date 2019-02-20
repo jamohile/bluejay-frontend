@@ -534,7 +534,7 @@ exports[`Renders stale ReloadView. 1`] = `
   >
     Reload 
     <b>
-       - This data may be out of date.
+       - May be outdated.
     </b>
   </span>
 </div>

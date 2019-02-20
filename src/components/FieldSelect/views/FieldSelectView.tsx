@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './fieldSelectView.css';
 import { string } from 'prop-types';
+import { InputBase } from '../../UI/Input/Input';
 
 // Properties for the whole FieldSelectView. This is the highest level component here.
 export interface FieldSelectViewProps {
@@ -44,24 +45,26 @@ export class FieldSelectView extends React.Component<FieldSelectViewProps> {
         const {loaded, loading, error, fieldOptions, selected, onChange} = this.props;
 
         return (
-            <div className = {'fieldSelect' + (error ? ' error' : '')}>
-                {
-                    error &&
-                    <ErrorView/>
-                }
-                {
-                    loading &&
-                    <LoadingView/>
-                }
+            <div className='fieldSelect'>
+                <InputBase error={error}>
+                    {
+                        error &&
+                        <ErrorView/>
+                    }
+                    {
+                        loading &&
+                        <LoadingView/>
+                    }
 
-                {
-                    loaded &&
-                        <OptionView
-                            selected = {selected}
-                            options = {fieldOptions}
-                            onChange = {onChange}
-                        />
-                }
+                    {
+                        loaded &&
+                            <OptionView
+                                selected = {selected}
+                                options = {fieldOptions}
+                                onChange = {onChange}
+                            />
+                    }
+                </InputBase> 
             </div>
         )
     }
@@ -78,7 +81,7 @@ export const LoadingView = () => (
 export const OptionView = ({selected, options, onChange}:OptionViewProps) => (
     <span className = 'optionView'>
         <span className = 'faded text'>
-            Filter by
+            Select by
         </span>
         <select className='bold text' onChange={(e:any)=>onChange(e.target.value)}>
             {

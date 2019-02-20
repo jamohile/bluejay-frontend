@@ -9,13 +9,10 @@ interface DataTableViewProps {
     rows: DataRow[],
     loaded: boolean,
     loading: boolean,
+    timeElapsed: number,
     error: boolean,
     excessRows: number,
     onReload: () => void
-}
-
-interface DataTableViewState {
-    stale: boolean;
 }
 
 interface ReloadViewProps {
@@ -43,21 +40,13 @@ interface RowsViewProps {
  * Not using a table was chosen for the sake of formatting in this case.
  * If necessary, implementing this using existing table views could be done.
  */
-export class DataTableView extends React.Component<DataTableViewProps, DataTableViewState> {
+export class DataTableView extends React.Component<DataTableViewProps> {
     constructor(props: DataTableViewProps) {
         super(props);
-        this.state = {
-            stale: false
-        }
     }
 
-    componentWillReceiveProps() {
-        this.setState({ stale: false })
-        setTimeout(() => this.setState({ stale: true }), 10000);
-    }
     render() {
-        const { rows, loaded, loading, error, excessRows, onReload } = this.props;
-
+        const { rows, loaded, loading, error, timeElapsed, excessRows, onReload } = this.props;
         return (
             <div className='dataTable'>
                 <HeaderView />
@@ -74,7 +63,7 @@ export class DataTableView extends React.Component<DataTableViewProps, DataTable
                     !loading && (loaded || error) &&
                     <ReloadButton
                         onReload={onReload}
-                        stale={this.state.stale}
+                        stale={timeElapsed > 10}
                     />
                 }
                 {
@@ -111,7 +100,7 @@ export const ReloadButton = ({ onReload, stale }: ReloadViewProps) => (
     <div className='cardView reloadView'
         onClick={onReload}
     >
-        <span className='text'>Reload <b>{stale ? ' - This data may be out of date.' : ''}</b></span>
+        <span className='text'>Reload <b>{stale ? ' - May be outdated.' : ''}</b></span>
     </div>
 )
 

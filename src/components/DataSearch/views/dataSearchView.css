@@ -1,0 +1,24 @@
+.dataSearch{
+    width: 640px;
+    position: relative;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 540px){
+    .dataSearch{
+        width: 80%;
+    }
+}
+
+.dataSearch input[type=text]{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+}
+
+.dataSearch input[type=text]:focus{
+    outline: none;
+    border: none;
+}

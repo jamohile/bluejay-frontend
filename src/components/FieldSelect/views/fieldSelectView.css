@@ -1,35 +1,19 @@
 .fieldSelect{
     position: relative;
     left: 0;
-    
-    height: 64px;
     width: 640px;
-    box-sizing: border-box;
-
-    margin: 48px auto 48px auto;
-
-    background: white;
-    border-radius: 32px;
-
-    text-align: left;
-    line-height: 64px;
-    padding-left: 26px;
-    padding-right: 26px;
-
-    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.24);
-}
-
-.fieldSelect.error{
-    background: #D87777
-}
-.fieldSelect.error .text{
-    color: white;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (max-width: 540px){
     .fieldSelect{
         width: 80%;
     }
+}
+
+.fieldSelect .inputBase{
+    margin-bottom: 0px;
 }
 
 .fieldSelect .optionView{

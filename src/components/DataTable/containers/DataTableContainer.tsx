@@ -2,15 +2,17 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {StoreState} from "../../../utilities/store/reducers/root";
 import {DataRow, DataState} from "../../../utilities/store/reducers/data";
-import {asyncLoadDataAction, dataReloadAction} from "../../../utilities/store/actions/data";
+import {asyncLoadDataAction, dataReloadAction, dataTimeElapsedIncrementAction} from "../../../utilities/store/actions/data";
 import { DataTableView } from '../views/DataTableView';
 
 // Have to use optional members since they are added in by Redux and would throw an error in App.tsx otherwise.
 interface DataTableContainerProps {
     data?: DataState,
     selected?: string,
+    timeElapsed?:number,
     loadDataField?: (field: string) => void;
     reloadDataField?:(field:string) => void;
+    incrementTimeElapsed?: () => void;
 }
 
 
@@ -25,6 +27,10 @@ class DataTableContainer extends React.Component<DataTableContainerProps> {
         super(props);
     }
 
+    componentDidMount(){
+        const incrementTimeElapsed = this.props.incrementTimeElapsed as () => void;
+        setInterval(incrementTimeElapsed, 1000);
+    }
     render() {
         // Declared individually for type assertion.
         const data:DataState = this.props.data as DataState;
@@ -36,6 +42,9 @@ class DataTableContainer extends React.Component<DataTableContainerProps> {
         let loaded = data.loaded;
         let loading = data.loading;
         let error = data.error;
+
+        const search = data.search;
+        const timeElapsed = data.timeElapsed as number;
 
         /* Trigger a loading action if:
             1) data isn't loaded. 
@@ -49,20 +58,52 @@ class DataTableContainer extends React.Component<DataTableContainerProps> {
             loading = false;
         }
 
+        // We load these into variables to both reduce complexity in JSX,
+        // and to allow us to filter them more easily in JSX.
+        let rows = loaded ? data.store[selected].rows : [];
+        let excessRows = loaded ? data.store[selected].excessRows : 0;
+        
         return (
             <DataTableView
                 loaded={loaded}
                 loading={loading}
                 error={error}
+                timeElapsed={timeElapsed}
                 onReload={() => reloadDataField(selected)}
                 /* Necessary because if we just triggered a load, the store will not have this field.*/
-                rows = {loaded ? data.store[selected].rows : []}
-                excessRows = {loaded ? data.store[selected].excessRows : 0}
+                rows = {filterRowsBySearch(rows, search)}
+                excessRows = {excessRows}
                 
             />
         )
     }
 
+}
+
+/* This filters rows based on the search query.
+   Search structure is a one to many, any of.
+   For example, search "College" matches value "College University"
+   search "CollegeUniversity" does not match value "College University"
+   search "College University" matches values "College" and "University" 
+*/ 
+function filterRowsBySearch(rows: DataRow[], search:string): DataRow[]{
+    //If no search, wildcard.
+    if(search == ''){
+        return rows;
+    }
+
+    // Token multi-word searches into multiple possible matches
+    const searchTokens = search.toLowerCase().split(' ');
+    //Filter as described above.
+    return rows.filter((r: DataRow) => {
+        const val = r.value.toString().toLowerCase();
+        for(let s of searchTokens){
+            if(val.includes(s)){
+                return true;
+            }
+        }
+        return false;
+    })
 }
 
 const mapStatetoProps = (state: StoreState) => {
@@ -75,7 +116,8 @@ const mapStatetoProps = (state: StoreState) => {
 const mapDispatchtoProps = (dispatch: ({}) => void) => {
     return {
         loadDataField: (field: string) => dispatch(asyncLoadDataAction(field)),
-        reloadDataField: (field: string) => dispatch(dataReloadAction(field))
+        reloadDataField: (field: string) => dispatch(dataReloadAction(field)),
+        incrementTimeElapsed: () => dispatch(dataTimeElapsedIncrementAction())
     }
 
 

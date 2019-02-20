@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Bluejay
+Bluejay is a simple database viewing app to sort through basic census data.
 
-## Available Scripts
+## Organization Conventions
+### Components
+All functional components of this app are stored in the components directory.
+Within this directory, each component has a subdirectory of name `ComponentName`. This in turn contains the subdirectories, `containers` and `views`. Containers holds components, with name `ComponentNameContainer` that 'do something', e.g. get data, prepare data, but do not have any display capability. They pass props for display to components stored in views.
 
-In the project directory, you can run:
+The views directory contains components, with name `ComponentNameView`, which display based on the props passed into them. This directory also contains css files, with the same name as their respective component but camelCased. Finally, there is a jest testing file with the same name as its respective component, with '.test' appended to it.
 
-### `npm start`
+Note that this convention of UpperSentenceCase components and camelCase helpers continues throughout.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### UI
+This directory is dedicated to resuable presentational components, which contain so little logic on their own, and cannot be associated with a particular Functionality level component. 
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Utilities
+The utilities subdirectory holds non-component elements,
+such as the network helpers and redux store. These are used by components.
 
-### `npm test`
+### Boilerplate
+index, App, and their related files (created by boilerplate) have been left in the root for simplicity and differentiation from other 'custom' files.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
+This app is built in typescript, and has its assets compiled to js (in dist) by the command `npm run build-ts`.
 
-### `npm run build`
+When deploying, *do not* include this directory. Typescript will be compiled, and a react production build will be assembled, automatically upon Heroku deploy.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Important Design Decisions
+    1.  A search filter, as a proof of concept, was included because of the large amount of data. The search process was not optimized since 1) proof of concept, and 2) Only 100 rows being filtered, modern computers can handle it.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+    2. While mobile is 'generally' supported, it is not optimized of foolproof. It was thought that this is primarily a desktop app and was developed as such.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    3. An  HTML table was not used, and was instead reimplemented is CSS using simple flex, because it offered a great deal of control regarding the styles desired and was not overtly complicated to develop and maintain.
 
-### `npm run eject`
+    4. Gradient was chosen due to its re-emergence in web design.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    5. Caching was done since use-case was not specified, but a hard-reload button with reminder timer was also included to allow flexibility.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    6. 100% Round corners indicare inputs of some sort.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    7. I'm not saying there's an easter egg if you hover the logo...but I'm also not saying there isn't...
