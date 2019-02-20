@@ -41,7 +41,7 @@
 }
 .fieldSelect .optionView select{
     flex-grow: 1; /*TODO: Fix this.*/
-    margin-left: 4px;
+    margin-left: 7px;
     outline: none;
     border: none;
     background: none;
@@ -50,4 +50,7 @@
 }
 .fieldSelect .optionView select:hover{
     margin-left: 20px;
+}
+.fieldSelect .optionView select:hover{
+    color: #448afd;
 }
