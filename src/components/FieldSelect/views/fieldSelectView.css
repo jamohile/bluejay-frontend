@@ -45,6 +45,7 @@
     outline: none;
     border: none;
     background: none;
+    -webkit-appearance: none;
     transition: all 0.2s;
 }
 .fieldSelect .optionView select:hover{
