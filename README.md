@@ -39,3 +39,5 @@ When deploying, *do not* include this directory. Typescript will be compiled, an
     6. 100% Round corners indicare inputs of some sort.
 
     7. I'm not saying there's an easter egg if you hover the logo...but I'm also not saying there isn't...
+
+    8. TODO: Clean up the css styling, but that convention depends on organization.
